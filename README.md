@@ -6,4 +6,6 @@
  
  
  
- Caminho dos arquivos de estudo: testes\cypress\e2e\3-AluraPic
+ Caminho dos arquivos de estudo: 
+Automacao-de-Testes/cypress/e2e/3-AluraPic/
+
