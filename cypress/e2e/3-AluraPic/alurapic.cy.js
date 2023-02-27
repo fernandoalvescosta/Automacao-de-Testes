@@ -36,5 +36,34 @@ describe('alura busca cursos ', () => {
         cy.contains('ap-vmessage', 'Must be lower case').should('be.visible');
     })
 
+    it('verifica mensagens de email invalido', () => {
+        cy.contains('a', 'Register now').click();
+        cy.contains('button', 'Register').click();
+        cy.get('input[formcontrolname="email"]').type('fernando');
+        cy.contains('ap-vmessage', 'Invalid e-mail').should('be.visible');
+     
+    })
+
+    it('fazer login de usuario valido', () => {
+        cy.login('flavio', '123');
+        cy.contains('a', '(Logout)').should('be.visible');
+    })
+
+    it('fazer login de usuario invalido', () => {
+        cy.login('jacqueline', '1234');
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal('Invalid user name or password');
+        })
+    })
+    it.only('Registre novo usuario' , ()=>{
+        cy.contains('a', 'Register now').click();
+        cy.contains('button', 'Register').click();
+        cy.get('input[formcontrolname="email"]').type('fernando.ac@hotmail.com');
+        cy.get('input[formcontrolname="fullName"]').type('Fernando Alves');
+        cy.get('input[formcontrolname="userName"]').type('Fernandoo');
+        cy.get('input[formcontrolname="password"]').type('1234567890');
+        cy.contains('button','Register').click();
+    })
+
 
 })
