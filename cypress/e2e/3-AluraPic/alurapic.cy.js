@@ -55,15 +55,23 @@ describe('alura busca cursos ', () => {
             expect(str).to.equal('Invalid user name or password');
         })
     })
-    it.only('Registre novo usuario' , ()=>{
-        cy.contains('a', 'Register now').click();
-        cy.contains('button', 'Register').click();
-        cy.get('input[formcontrolname="email"]').type('fernando.ac@hotmail.com');
-        cy.get('input[formcontrolname="fullName"]').type('Fernando Alves');
-        cy.get('input[formcontrolname="userName"]').type('Fernandoo');
-        cy.get('input[formcontrolname="password"]').type('1234567890');
-        cy.contains('button','Register').click();
+    //Const cria variavel e o require referencia ao usuario.jeson que esta na pasta fixtures
+   const usuarios = require('../../fixtures/usuarios.json');
+    usuarios.beforeEach(usuario => {
+
+        //mostrar qual usuario esta sendo cadastrado         
+        it.only(`Registre novo usuario ${usuarios.userName}` , ()=>{
+            cy.contains('a', 'Register now').click();
+            cy.contains('button', 'Register').click();
+            cy.get('input[formcontrolname="email"]').type(usuario.email);
+            cy.get('input[formcontrolname="fullName"]').type(usuario.fullName);
+            cy.get('input[formcontrolname="userName"]').type(usuario.userName);
+            cy.get('input[formcontrolname="password"]').type(usuario.password);
+            cy.contains('button','Register').click();
+        })
+        
     })
+
 
 
 })

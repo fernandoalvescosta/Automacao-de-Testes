@@ -1,0 +1,20 @@
+[
+    {
+        "email": "Iron-man@avengers.com",
+        "fullName": "Robert Downey Jr",
+        "userName": "ironman",
+        "password": "Playboyzinho"
+    },
+    {
+        "email": "Thor@avengers.com",
+        "fullName": "Chris Hemsworth",
+        "userName": "thor",
+        "password": "deusDoTrovão"
+    },
+    {
+        "email": "Hulk@avengers.com",
+        "fullName": "Mark Ruffalo",
+        "userName": "hulk",
+        "password": "hulkEsmaga"
+    }
+]
